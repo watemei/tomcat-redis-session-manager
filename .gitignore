@@ -1,8 +1,9 @@
-.gradle/*
-build/*
-example-app/build/*
-example-app/.gradle/*
-.DS_Store
-.rspec
+.*
+!.gitignore
+target
+build
+out
+lib
 *.iml
-.idea/*
+*~
+*.orig

@@ -1,5 +1,6 @@
 package com.orangefunction.tomcat.redissessions;
 
+import org.apache.catalina.Context;
 import org.apache.catalina.Lifecycle;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.LifecycleListener;
@@ -714,10 +715,14 @@ public class RedisSessionManager extends ManagerBase implements Lifecycle {
 
     Loader loader = null;
 
-    if (getContainer() != null) {
-      loader = getContainer().getLoader();
-    }
+//    if (getContainer() != null) {
+//      loader = getContainer().getLoader();
+//    }
 
+    Context context =this.getContext();
+    if (context!=null) {
+        loader =context.getLoader();
+    }
     ClassLoader classLoader = null;
 
     if (loader != null) {
